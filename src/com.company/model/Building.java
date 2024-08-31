@@ -1,3 +1,5 @@
+package com.company.model;
+
 // Абстрактный класс для всех типов домов
 abstract class Building {
     protected String address;

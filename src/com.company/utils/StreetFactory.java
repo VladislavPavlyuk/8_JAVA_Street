@@ -1,31 +1,28 @@
-package com.company.utils;
+package com.company;
 
-import com.company.model.Man;
-import com.company.model.Person;
-import com.company.model.Woman;
-import com.company.service.man.ManPrintBrief;
-import com.company.service.woman.WomanPrintFull;
 
 import java.util.Random;
 
-public class PersonFactory {
+public class StreetFactory {
 
-    private static String[] nameDatMan = new String[] {"Ivan", "Petr", "Pavel"};
-    private static String[] lastNameDatMan;
-    private static String[] nameDatWoman = new String[] {"Inna", "Oksana", "Irina"};
-    private static String[] lastNameDatWoman;
+    Random rand = new Random();
 
-    static {
-        lastNameDatMan = new String[] {"Petrov", "Artemyev", "Sokolov", "Ivanov"};
-        lastNameDatWoman = new String[] {"Petrova", "Artemyeva", "Sokolova", "Ivanova"};
-    }
+    int streetPopulation = 100 + rand.nextInt(10000);
 
-    private PersonFactory() {}
+    int residentalBuildings = streetPopulation / 3;
 
-    public static Person createMan() {
+    int shops = streetPopulation / 300;
+
+    int schools = streetPopulation / 1500;
+
+    int hospitals = streetPopulation / 5000;
+
+    private StreetFactory() {}
+
+    public static StreetFactory createResidentalBuilding() {
         Random rand = new Random();
 
-        Person person = new Man(new ManPrintBrief());
+        ResidentialBuilding residental = new ResidentialBuilding(new ManPrintBrief());
         person.setName(nameDatMan[rand.nextInt(nameDatMan.length)]);
         person.setLastName(lastNameDatMan[rand.nextInt(lastNameDatMan.length)]);
         return person;
@@ -55,4 +52,6 @@ public class PersonFactory {
         }
         return result;
     }
+
+
 }

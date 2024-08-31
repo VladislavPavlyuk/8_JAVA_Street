@@ -1,5 +1,4 @@
 package com.company.model;
-import com.company.model;
 
 // Школа
 class School extends Building {

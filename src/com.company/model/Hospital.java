@@ -1,5 +1,7 @@
+package com.company.model;
+
 // больница
-class Hospital extends Building{
+class Hospital extends Building {
     private int numberOfPatients;
     private String accreditationLevel;
 

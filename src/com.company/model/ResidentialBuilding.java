@@ -1,5 +1,7 @@
+package com.company.model;
+
 // Жилой дом
-class ResidentialBuilding extends Building {
+public class ResidentialBuilding extends Building {
     private int numberOfResidents;
 
     public ResidentialBuilding(String address, int numberOfResidents) {
