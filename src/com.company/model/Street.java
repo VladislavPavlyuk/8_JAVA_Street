@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 // Улица
-class Street {
+public class Street {
     private List<Building> buildings;
 
     public Street() {
@@ -25,7 +25,7 @@ class Street {
         }
     }
 
-    public List<Shop> findShopsNearResidentialBuilding(ResidentialBuilding residentialBuilding, int range, String departmentType) {
+    public List<Shop> findShopsNearResidentialBuilding(Residential residentialBuilding, int range, String departmentType) {
         List<Shop> nearbyShops = new ArrayList<>();
         int index = buildings.indexOf(residentialBuilding);
         for (int i = Math.max(0, index - range); i <= Math.min(buildings.size() - 1, index + range); i++) {

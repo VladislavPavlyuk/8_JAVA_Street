@@ -3,7 +3,7 @@ package com.company.model;
 import com.company.service.school.SchoolPrintable;
 
 // Школа
-class School extends Building {
+public class School extends Building {
 
     private SchoolPrintable schoolPrintable;
 

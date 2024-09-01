@@ -1,6 +1,8 @@
 package com.company.utils;
 import com.company.model.*;
+import com.company.service.hospital.*;
 import com.company.service.residential.*;
+import com.company.service.school.*;
 import com.company.service.shop.*;
 import java.util.Random;
 
@@ -19,9 +21,20 @@ public class StreetFactory {
     // Capacity
     static int []hospitalCapacity = {50,150,200,250,300};
     static int []residentialCapacity = {50, 100, 150, 200, 250, 300};
-    static int []schoolCapacity = {250,500,1000};
+    static int []schoolCapacity = {50,100,150,200,250,500,1000};
+
+    static String []schoolAccreditationLevel = {"Pre-School","Elementary","Middle","High"};
 
     private StreetFactory() {}
+
+    public static Building createHospital() {
+        Random rand = new Random();
+        Hospital hospital = new Hospital(new HospitalFullPrintable());
+        hospital.setAddress(streetAdresses[rand.nextInt(streetAdresses.length)]);
+        hospital.setCapacity(hospitalCapacity[rand.nextInt(hospitalCapacity.length)]);
+
+        return hospital;
+    }
 
     public static Building createResidental() {
         Random rand = new Random();
@@ -32,13 +45,21 @@ public class StreetFactory {
         return residental;
     }
 
+    public static Building createSchool() {
+        Random rand = new Random();
+        School school = new School(new SchoolFullPrintable());
+        school.setAddress(streetAdresses[rand.nextInt(streetAdresses.length)]);
+        school.setCapacity(schoolCapacity[rand.nextInt(schoolCapacity.length)]);
+        school.setAccreditationLevel(schoolAccreditationLevel[rand.nextInt(schoolAccreditationLevel.length)]);
+        return school;
+    }
+
     public static Building createShop() {
         Random rand = new Random();
         Shop shop = new Shop(new ShopFullPrintable());
         shop.setAddress(streetAdresses[rand.nextInt(streetAdresses.length)]);
-        shop.setCapacity(residentialCapacity[rand.nextInt(residentialCapacity.length)]);
-        shop.setNumberOfDepartments(rand.nextInt(shop.getNumberOfDepartments()));
-        return residental;
+
+        return shop;
     }
 
     public static Building createRandomBuilding() {

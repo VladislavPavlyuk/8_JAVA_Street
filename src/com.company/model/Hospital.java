@@ -2,7 +2,7 @@ package com.company.model;
 import com.company.service.hospital.HospitalPrintable;
 
 // больница
-class Hospital extends Building {
+public class Hospital extends Building {
 
     private HospitalPrintable hospitalPrintable;
 
@@ -16,29 +16,18 @@ class Hospital extends Building {
 
     private int numberOfPatients;
 
-    private String accreditationLevel;
-
-    public Hospital(int address, int numberOfPatients, String accreditationLevel, HospitalPrintable hospitalPrintable) {
+    public Hospital(int address, int numberOfPatients,  HospitalPrintable hospitalPrintable) {
         super(address);
         this.hospitalPrintable = hospitalPrintable;
         this.numberOfPatients = numberOfPatients;
-        this.accreditationLevel = accreditationLevel;
     }
 
-    public int getNumberOfStudents() {
+    public int getNumberOfPatients() {
         return numberOfPatients;
     }
 
-    public void setNumberOfStudents(int numberOfStudents) {
-        this.numberOfPatients = numberOfStudents;
-    }
-
-    public String getAccreditationLevel() {
-        return accreditationLevel;
-    }
-
-    public void setAccreditationLevel(String accreditationLevel) {
-        this.accreditationLevel = accreditationLevel;
+    public void setNumberOfPatients(int numberOfPatients) {
+        this.numberOfPatients = numberOfPatients;
     }
 
     @Override
@@ -47,7 +36,6 @@ class Hospital extends Building {
         String[] parts = data.split(",");
         this.address = Integer.parseInt(parts[0]); //Integer.parseInt(str);
         this.numberOfPatients = Integer.parseInt(parts[1]);
-        this.accreditationLevel = parts[2];
     }
 
     @Override
