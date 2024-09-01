@@ -1,12 +1,26 @@
 package com.company.model;
+import com.company.service.hospital.HospitalPrintable;
 
 // больница
 class Hospital extends Building {
+
+    private HospitalPrintable hospitalPrintable;
+
+    public Hospital(HospitalPrintable hospitalPrintable) {
+        this.hospitalPrintable = hospitalPrintable;
+    }
+
+    public void setHospitalPrintable(HospitalPrintable hospitalPrintable) {
+        this.hospitalPrintable = hospitalPrintable;
+    }
+
     private int numberOfPatients;
+
     private String accreditationLevel;
 
-    public Hospital(String address, int numberOfPatients, String accreditationLevel) {
+    public Hospital(int address, int numberOfPatients, String accreditationLevel, HospitalPrintable hospitalPrintable) {
         super(address);
+        this.hospitalPrintable = hospitalPrintable;
         this.numberOfPatients = numberOfPatients;
         this.accreditationLevel = accreditationLevel;
     }
@@ -29,15 +43,16 @@ class Hospital extends Building {
 
     @Override
     public void initializeFromString(String data) {
-        // Пример: "address,numberOfStudents,accreditationLevel"
+
         String[] parts = data.split(",");
-        this.address = parts[0];
+        this.address = Integer.parseInt(parts[0]); //Integer.parseInt(str);
         this.numberOfPatients = Integer.parseInt(parts[1]);
         this.accreditationLevel = parts[2];
     }
 
     @Override
     public void printInfo() {
-        System.out.println("School at " + address + " with " + numberOfPatients + " students, accreditation level: " + accreditationLevel + ".");
+        hospitalPrintable.printInfo(this);
     }
 }
+

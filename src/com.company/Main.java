@@ -32,10 +32,32 @@ package com.company;
 
     public class Main {
         public static void main(String[] args) {
-            Street street = new Street();
 
-            ResidentialBuilding house1 = new ResidentialBuilding("123 Main St", 4);
-            Shop shop1 = new Shop("124 Main St", 1);
+            System.out.println("Hello street!");
+
+            Street street1 = StreetFactory.createRandomPerson();
+            person1.print();
+
+            Person person2 = PersonFactory.createRandomPerson();
+            person2.print();
+
+            System.out.println("-".repeat(50));
+
+            Person[] arrPerson = new Person[10];
+
+            for (int i = 0; i < arrPerson.length; i++) {
+                arrPerson[i] = PersonFactory.createRandomPerson();
+            }
+
+            for (int i = 0; i < arrPerson.length; i++) {
+                System.out.println();
+                arrPerson[i].print();
+                System.out.println();
+            }
+           /* Street street = new Street();
+
+            Residential house1 = new Residential(1, 4);
+            Shop shop1 = new Shop(2, 1);
             School school1 = new School("125 Main St", 300, "High School");
 
             street.addBuilding(house1);
@@ -48,6 +70,8 @@ package com.company;
             System.out.println("Nearby shops:");
             for (Shop shop : nearbyShops) {
                 shop.printInfo();
-            }
+            }*/
+
+
         }
     }

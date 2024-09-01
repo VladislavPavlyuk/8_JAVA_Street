@@ -1,11 +1,25 @@
 package com.company.model;
 
+import com.company.service.school.SchoolPrintable;
+
 // Школа
 class School extends Building {
+
+    private SchoolPrintable schoolPrintable;
+
+    public School(SchoolPrintable schoolPrintable) {
+        this.schoolPrintable = schoolPrintable;
+    }
+
+    public void setSchoolPrintable(SchoolPrintable schoolPrintable) {
+        this.schoolPrintable = schoolPrintable;
+    }
+
     private int numberOfStudents;
+
     private String accreditationLevel;
 
-    public School(String address, int numberOfStudents, String accreditationLevel) {
+    public School(int address, int numberOfStudents, String accreditationLevel) {
         super(address);
         this.numberOfStudents = numberOfStudents;
         this.accreditationLevel = accreditationLevel;
@@ -31,13 +45,13 @@ class School extends Building {
     public void initializeFromString(String data) {
         // Пример: "address,numberOfStudents,accreditationLevel"
         String[] parts = data.split(",");
-        this.address = parts[0];
+        this.address = Integer.parseInt(parts[0]);
         this.numberOfStudents = Integer.parseInt(parts[1]);
         this.accreditationLevel = parts[2];
     }
 
     @Override
     public void printInfo() {
-        System.out.println("School at " + address + " with " + numberOfStudents + " students, accreditation level: " + accreditationLevel + ".");
+        schoolPrintable.printInfo(this);
     }
 }
