@@ -58,10 +58,8 @@ public class Shop extends Building {
         updateShopMetadata();
     }
     
-    /**
-     * Gets the list of appropriate departments for the current shop type.
-     * @return list of appropriate departments, empty list if shopType is null
-     */
+    //Gets the list of appropriate departments for the current shop type.
+
     private List<DepartmentType> getAppropriateDepartments() {
         if (shopType == null) {
             return new ArrayList<>();
@@ -69,31 +67,23 @@ public class Shop extends Building {
         return shopType.getAppropriateDepartments();
     }
     
-    /**
-     * Handles the case when no appropriate departments are found.
-     * Sets departments to contain only OTHER as fallback.
-     */
+    //Handles the case when no appropriate departments are found.
+
     private void handleEmptyDepartments() {
         this.departments = new ArrayList<>();
         this.departments.add(DepartmentType.OTHER);
     }
     
-    /**
-     * Calculates a random number of departments within the shop type's range.
-     * @return random number between minDept and maxDept (inclusive)
-     */
+    // Calculates a random number of departments within the shop type's range.
+
     private int calculateNumberOfDepartments() {
         Random rand = new Random();
         int range = shopType.getMaxDept() - shopType.getMinDept() + 1;
         return rand.nextInt(range) + shopType.getMinDept();
     }
     
-    /**
-     * Selects random departments from the list of appropriate departments.
-     * @param appropriateDepts list of appropriate departments to choose from
-     * @param numberOfDepartments desired number of departments to select
-     * @return list of selected departments (may be less than requested if not enough available)
-     */
+    // Selects random departments from the list of appropriate departments.
+
     private List<DepartmentType> selectRandomDepartments(List<DepartmentType> appropriateDepts, int numberOfDepartments) {
         Random rand = new Random();
         Set<DepartmentType> selectedTypes = new HashSet<>();
@@ -112,9 +102,8 @@ public class Shop extends Building {
         return new ArrayList<>(selectedTypes);
     }
     
-    /**
-     * Updates shop metadata (description and name) from the shop type.
-     */
+    // Updates shop metadata (description and name) from the shop type.
+
     private void updateShopMetadata() {
         if (shopType != null) {
             this.shopDescription = shopType.getDescription();
@@ -191,11 +180,8 @@ public class Shop extends Building {
         }
     }
     
-    /**
-     * Sets shop type from string input.
-     * Supports: enum name (SUPERMARKET), display name (Supermarket), or index (0-based)
-     * @param input shop type as string
-     */
+    // Sets shop type from string input.
+
     private void setShopTypeFromString(String input) {
         // First, try to parse as index (0-based)
         try {
@@ -221,18 +207,12 @@ public class Shop extends Building {
         // Departments will be empty or set to OTHER
     }
     
-    /**
-     * Parses address from string part.
-     * @param addressPart string containing address
-     */
+    // Parses address from string part.
     private void parseAddressFromString(String addressPart) {
         this.address = Integer.parseInt(addressPart.trim());
     }
     
-    /**
-     * Initializes departments from string data.
-     * @param numDepts number of departments to initialize
-     */
+    //Initializes departments from string data.
     private void initializeDepartmentsFromString(int numDepts) {
         departments.clear();
         
@@ -243,10 +223,7 @@ public class Shop extends Building {
         }
     }
     
-    /**
-     * Selects departments when shop type is set (uses appropriate departments).
-     * @param numDepts number of departments to select
-     */
+    // Selects departments when shop type is set (uses appropriate departments).
     private void selectDepartmentsWithShopType(int numDepts) {
         List<DepartmentType> appropriateDepts = shopType.getAppropriateDepartments();
         
@@ -257,10 +234,7 @@ public class Shop extends Building {
         }
     }
     
-    /**
-     * Selects departments when shop type is not set (uses random selection from all types).
-     * @param numDepts number of departments to select
-     */
+    // Selects departments when shop type is not set (uses random selection from all types).
     private void selectDepartmentsWithoutShopType(int numDepts) {
         Random rand = new Random();
         DepartmentType[] allTypes = DepartmentType.values();
@@ -273,11 +247,7 @@ public class Shop extends Building {
         }
     }
     
-    /**
-     * Selects random departments from a given list.
-     * @param availableDepts list of available departments to choose from
-     * @param numDepts desired number of departments to select
-     */
+    // Selects random departments from a given list.
     private void selectRandomDepartmentsFromList(List<DepartmentType> availableDepts, int numDepts) {
         Random rand = new Random();
         List<DepartmentType> deptsCopy = new ArrayList<>(availableDepts);

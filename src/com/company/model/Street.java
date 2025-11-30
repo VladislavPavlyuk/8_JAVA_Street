@@ -137,11 +137,7 @@ public class Street {
         return residentialBuildings.get(rand.nextInt(residentialBuildings.size()));
     }
     
-    /**
-     * Gets a residential building by its address.
-     * @param address address of the residential building
-     * @return Residential building with the specified address, or null if not found or not a residential building
-     */
+    //Gets a residential building by its address.
     public Residential getResidentialBuildingByAddress(int address) {
         for (IBuilding building : buildings) {
             if (building instanceof Residential && building.getAddress() == address) {
@@ -155,11 +151,7 @@ public class Street {
         return buildings.size();
     }
     
-    /**
-     * Checks if an address is already occupied by another building.
-     * @param address address to check
-     * @return true if address is occupied, false otherwise
-     */
+    // Checks if an address is already occupied by another building.
     public boolean isAddressOccupied(int address) {
         for (IBuilding building : buildings) {
             if (building.getAddress() == address) {
@@ -169,10 +161,7 @@ public class Street {
         return false;
     }
     
-    /**
-     * Gets the next available address (next after the maximum address).
-     * @return next available address (max address + 1, or 1 if no buildings exist)
-     */
+    // Gets the next available address (next after the maximum address).
     public int getNextAvailableAddress() {
         if (buildings.isEmpty()) {
             return 1;

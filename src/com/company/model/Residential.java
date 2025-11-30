@@ -90,7 +90,7 @@ public class Residential extends Building {
     }
     
     // Calculates the number of apartments based on number of residents and capacity.
-     // @return calculated number of apartments
+     // Return calculated number of apartments
 
     private int calculateNumberOfApartments() {
         Random rand = new Random();
@@ -101,7 +101,7 @@ public class Residential extends Building {
     
 
      // Distributes residents across apartments (max 3 per apartment).
-     // @return number of remaining residents that couldn't be distributed
+     // Return number of remaining residents that couldn't be distributed
 
     private int distributeResidentsAcrossApartments() {
         Random rand = new Random();

@@ -180,11 +180,8 @@ public class Menu {
         System.out.println("4. Shop");
     }
     
-    /**
-     * Creates a building based on user's choice.
-     * @param choice user's choice (1-4)
-     * @return created building or null if invalid choice
-     */
+    // Creates a building based on user's choice.
+
     private IBuilding createBuildingByType(int choice) {
         switch (choice) {
             case 1:
@@ -201,11 +198,8 @@ public class Menu {
         }
     }
     
-    /**
-     * Configures building-specific properties based on building type.
-     * @param building building to configure
-     * @param address building address
-     */
+    // Configures building-specific properties based on building type.
+
     private void configureBuilding(IBuilding building, int address) {
         if (building instanceof Hospital) {
             configureHospital((Hospital) building, address);
@@ -218,11 +212,8 @@ public class Menu {
         }
     }
     
-    /**
-     * Configures hospital-specific properties.
-     * @param hospital hospital to configure
-     * @param address hospital address
-     */
+    // Configures hospital-specific properties.
+
     private void configureHospital(Hospital hospital, int address) {
         hospital.setName("Hospital #" + address);
         int capacity = getIntInput("Enter capacity: ");
@@ -231,11 +222,8 @@ public class Menu {
         hospital.setNumberOfPatients(new java.util.Random().nextInt(capacity + 1));
     }
     
-    /**
-     * Configures residential building-specific properties.
-     * @param residential residential building to configure
-     * @param address building address
-     */
+    // Configures residential building-specific properties.
+
     private void configureResidential(Residential residential, int address) {
         residential.setName("Residential Building #" + address);
         int apartments = getIntInput("Enter number of apartments: ");
@@ -253,11 +241,8 @@ public class Menu {
                          "(1-3 residents per apartment)");
     }
     
-    /**
-     * Configures school-specific properties.
-     * @param school school to configure
-     * @param address school address
-     */
+    // Configures school-specific properties.
+
     private void configureSchool(School school, int address) {
         school.setName("School #" + address);
         printAccreditationLevels();
@@ -268,12 +253,9 @@ public class Menu {
         }
     }
     
-    /**
-     * Configures shop-specific properties.
-     * Shop type is already set in addBuilding() method, so we only set the name here.
-     * @param shop shop to configure
-     * @param address shop address
-     */
+    // Configures shop-specific properties.
+     // Shop type is already set in addBuilding() method, so we only set the name here.
+
     private void configureShop(Shop shop, int address) {
         shop.setName("Shop #" + address);
         // Shop type is already set in addBuilding() method
@@ -373,9 +355,8 @@ public class Menu {
         building.printInfo();
     }
     
-    /**
-     * Prints instructions for building initialization from string.
-     */
+    // Prints instructions for building initialization from string.
+
     private void printInitializationInstructions() {
         System.out.println("String format depends on building type:");
         System.out.println("  - Residential building: address,numberOfApartments (max 3 residents per apartment)");
@@ -384,11 +365,8 @@ public class Menu {
         System.out.println("  - Shop: address,shopType (number of departments will be assigned randomly)");
     }
     
-    /**
-     * Creates a building for initialization from string.
-     * @param choice user's choice (1-4)
-     * @return created building or null if invalid choice
-     */
+    // Creates a building for initialization from string.
+
     private IBuilding createBuildingForInitialization(int choice) {
         switch (choice) {
             case 1:

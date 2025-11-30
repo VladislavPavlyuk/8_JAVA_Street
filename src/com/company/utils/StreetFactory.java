@@ -48,7 +48,6 @@ public class StreetFactory {
     }
 
      // Creates residential buildings without addresses for population calculation.
-
     private static List<Residential> createResidentialBuildings(int buildingCount) {
         List<Residential> residentialBuildings = new ArrayList<>();
         for (int i = 0; i < buildingCount; i++) {
@@ -59,7 +58,6 @@ public class StreetFactory {
     }
 
      // Calculates total population from residential buildings.
-
     private static int calculateTotalPopulation(List<Residential> residentialBuildings) {
         int totalPopulation = 0;
         for (Residential residential : residentialBuildings) {
@@ -226,7 +224,6 @@ public class StreetFactory {
         // Then add schools, hospitals/clinics, and shops based on population
         return createStreet("Main Street", 20);
     }
-
 
     private static int generateUniqueAddress(Set<Integer> usedAddresses, int maxAddress) {
         // Check if we've exhausted all available addresses
